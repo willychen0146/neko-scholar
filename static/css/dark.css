@@ -1,0 +1,315 @@
+/* dark.css */
+
+/* Dark theme styles for the entire application */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+/* Home page styles */
+#post-section .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    background-color: #333333;
+}
+
+#post-section .card:hover {
+    cursor: pointer;
+    background-color: #424242;
+}
+
+#post-section .card-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#post-section .card-title {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+#post-section .card-img {
+    width: 85%;
+    height: 85%;
+}
+
+#post-section .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#post-section .card-footer {
+    background: none;
+    border-top: none;
+    padding: 10px;
+}
+
+#post-section .card-footer .btn-secondary {
+    background-color: #495057;
+    border-color: #495057;
+    color: #e0e0e0;
+}
+
+#post-section .card-footer .btn-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#post-section .card-footer .btn-secondary:focus, #post-section .card-footer .btn-secondary:active {
+    background-color: #545b62;
+    border-color: #4e555b;
+}
+
+#post-section .post-tags {
+    margin-bottom: 15px;
+}
+
+#post-section .badge-secondary {
+    margin-right: 5px;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+
+/* Search bar styles */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-container .form-inline {
+    width: 100%;
+    max-width: 60%;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #424242;
+}
+
+.search-bar-container .form-group.long-input {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.search-bar-container .form-group.long-input .form-control {
+    width: 90%;
+}
+
+.search-bar-container .form-group.long-input .btn {
+    width: 8%;
+}
+
+.search-bar-container .form-group.filters {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.search-bar-container .form-group.filters > * {
+    flex: 0 0 20%;
+    margin-right: 2%;
+}
+
+.search-bar-container .form-group.filters > *:last-child {
+    margin-right: 0;
+}
+
+.search-bar-container .form-control, .search-bar-container .btn {
+    width: 100%;
+}
+
+.search-bar-container .form-control, .search-bar-container .btn {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #333;
+}
+
+.search-bar-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.search-bar-container .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.search-bar-container .btn-primary:focus, .search-bar-container .btn-primary:active {
+    background-color: #0062cc;
+    border-color: #005cbf;
+}
+
+/* Filters styles */
+#filter-name{
+    margin-bottom: 5px;
+    color: white;
+    text-emphasis: bold;
+}
+
+/* Pagination styles */
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination > li {
+    display: inline;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.pagination > .active > a, 
+.pagination > .active > a:focus, 
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    cursor: default;
+}
+.pagination > li:first-child > a, 
+.pagination > li:first-child > span {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination > li:last-child > a, 
+.pagination > li:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+
+/* General styling for the About page in dark theme */
+#about .profile-pic {
+    border-radius: 50%;
+    border: 2px solid #333;
+    padding: 5px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s;
+}
+
+#about .profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.container#about {
+    font-family: 'Arial', sans-serif;
+    color: #E0E0E0;
+    background-color: #121212;
+}
+
+/* Headings */
+#about h1, #about h2 {
+    color: #1E90FF;
+}
+
+/* Team cards */
+#about .card {
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    border: none;
+    background-color: #242424;
+    border-radius: 15px;
+}
+
+#about .profile-pic {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#about .card-title {
+    color: #1E90FF;
+    margin-bottom: 15px;
+}
+
+#about .card-text {
+    font-size: 16px;
+    color: #E0E0E0;
+}
+
+/* Roadmap */
+#about .list-group-item {
+    border: none;
+    border-radius: 0;
+    background-color: #1C1C1E;
+    font-size: 16px;
+    color: #E0E0E0;
+}
+
+#about .list-group-item:not(:last-child) {
+    border-bottom: 1px solid #333;
+}
+
+/*send email page*/
+#send-email {
+    background-color: #1C1C1E;
+}
+
+/* Account settings page */
+#account-setting{
+    background-color: #1C1C1E;
+}
+
+/* Profile page */
+#profile-overview {
+    border-radius: 15px;
+    background-color: #1C1C1E;
+}
+#user-details {
+    border-radius: 15px;
+    background-color: #1C1C1E;
+}
+
+#user-details .card-body {
+    background-color: #1C1C1E;
+}
+
+#user-details .card-body .list-group-item {
+    background-color: #1C1C1E;
+    color: white;
+}

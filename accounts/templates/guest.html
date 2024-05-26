@@ -1,0 +1,85 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Account:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Account</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_post' account.id %}">Create Post</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{account.email}}</p>
+			<p>Phone: {{account.phone}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Posts</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{post_count}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Post</th>
+					<th>Content</th>
+					<th>Upload by</th>
+					<th>Date Post</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for post in posts %}
+
+				<tr>
+					<td>{{post.title}}</td>
+					<td>{{post.content}}</td>
+					<td>{{post.account}}</td>
+					<td>{{post.date_created}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_post' post.id %}">Update</a></td>
+
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_post' post.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

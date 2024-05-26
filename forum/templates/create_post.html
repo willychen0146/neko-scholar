@@ -1,0 +1,105 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<!-- SimpleMDE CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css">
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">發佈新文章</h5>
+            <form method="post" action="{% url 'create_post' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">標題</label>
+                    <input type="text" class="form-control" id="title" name="title" maxlength="80" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">內容</label>
+                    <textarea class="form-control" id="content" name="content" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">分類</label>
+                    <select class="form-control" id="category" name="category" required>
+                        <option value="Elementary">Elementary</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    {% for tag in tags %}
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="tags" value="{{ tag.id }}"> {{ tag.name }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">發佈</button>
+                <button type="button" class="btn btn-secondary" onclick="window.history.back();">取消</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- SimpleMDE JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var simplemde = new SimpleMDE({
+        element: document.getElementById('content'),
+        toolbar: [
+            "bold", "italic", "heading", "|",
+            "quote", "unordered-list", "ordered-list", "|",
+            "link", {
+                name: "image",
+                action: function customImageUpload(editor) {
+                    var input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', 'image/*');
+                    input.click();
+                    input.onchange = function() {
+                        var file = input.files[0];
+                        if (!file.type.match('image.*')) {
+                            alert('Please select an image file.');
+                            return;
+                        }
+
+                        var formData = new FormData();
+                        formData.append('file', file);
+                        var submitButton = document.querySelector('button[type="submit"]');
+                        submitButton.disabled = true;
+
+                        fetch("{% url 'upload_image' %}", {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            },
+                            body: formData
+                        }).then(response => response.json()).then(data => {
+                            if (data.success) {
+                                var imageUrl = data.file.url;
+                                var cm = editor.codemirror;
+                                var output = `![image](${imageUrl})`;
+                                cm.replaceSelection(output);
+                            } else {
+                                alert('Image upload failed.');
+                            }
+                        }).catch(error => {
+                            console.error('Error:', error);
+                            alert('Image upload failed.');
+                        }).finally(() => {
+                            submitButton.disabled = false;
+                        });
+                    };
+                },
+                className: "fa fa-picture-o",
+                title: "Insert Image",
+            },
+            "|", "preview", "side-by-side", "fullscreen"
+        ],
+    });
+});
+</script>
+{% endblock %}

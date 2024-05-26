@@ -1,0 +1,17 @@
+.card-body img {
+    max-width: 100%;
+    height: auto;
+}
+.post-tags span.badge {
+margin-right: 5px;
+color: white;
+background-color: #007BFF; /* 蓝色背景 */
+border-radius: 10px; /* 圆角边缘 */
+padding: 5px 10px;
+font-size: 0.9em; /* 调整字体大小 */
+box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 添加阴影 */
+}
+
+.post-tags span.badge i {
+    margin-right: 5px; /* 图标和文字之间的距离 */
+}

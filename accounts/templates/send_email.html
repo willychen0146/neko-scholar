@@ -1,0 +1,28 @@
+{%  extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body" id="send-email">
+          <h2 class="card-title text-center">Send Email <i class="fas fa-envelope-open-text ml-2"></i></h2>
+          <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+              {{ form.as_p|safe }}
+            </div>
+            <div class="invalid-feedback">
+              Please provide a valid email.
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane mr-2"></i>Send Email
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

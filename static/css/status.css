@@ -1,0 +1,55 @@
+/* status.css */
+
+#logo{
+}
+
+body{
+	background-color: #ebeff5;
+}
+
+
+#total-elementarys{
+	background-color: #4cb4c7;
+}
+
+
+#total-juniors{
+	background-color: #7abecc;
+}
+
+#total-seniors{
+	background-color: #7CD1C0;
+}
+
+/* Hover states */
+#total-elementarys:hover {
+    background-color: #3ca1b0;
+}
+
+#total-juniors:hover {
+    background-color: #69a8b2;
+}
+
+#total-seniors:hover {
+    background-color: #6bbba5;
+}
+
+/* Active (click) states */
+#total-elementarys:active {
+    background-color: #328a97;
+}
+
+#total-juniors:active {
+    background-color: #5b9199;
+}
+
+#total-seniors:active {
+    background-color: #5fa38c;
+}
+
+/* Mouse over change to hand */
+#total-elementarys:hover,
+#total-juniors:hover,
+#total-seniors:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+{%  extends 'main.html' %}
+{% block content %}
+{%  include 'status.html' %}
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Post</th>
+					<th>Category</th>
+					<th>Content</th>
+					<th>Posted</th>
+				</tr>
+
+				{% for post in posts %}
+
+				<tr>
+					<td>{{post.title|title}}</td>
+					<td>{{post.category}}</td>
+					<td>{{post.content|linebreaks|truncatewords:5|urlize}}</td>
+					<td>{{post.date_created|timesince}} ago</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

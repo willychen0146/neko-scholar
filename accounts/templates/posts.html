@@ -1,0 +1,34 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Posts</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Posts</th>
+							<th>Category</th>
+							<th>Account</th>
+						</tr>
+
+						{% for i in posts %}
+							<tr>
+								<td>{{i.title}}</td>
+								<td>{{i.category}}</td>
+								<td>{{i.account}}</td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}

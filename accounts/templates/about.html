@@ -1,0 +1,98 @@
+{%  extends 'main.html' %}
+{% block content %}
+
+{% load static %}
+
+<div class="container my-5" id="about">
+    <h1 class="text-center mb-4">About Us</h1>
+    
+    <h2 class="mb-4">Our Team</h2>
+    <div class="row text-center">
+        <!-- Member 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'images/staff1.png' %}" class="card-img-top profile-pic" alt="Member 1">
+                <div class="card-body">
+                    <h3 class="card-title">光唯</h3>
+                    <p class="card-text">生醫電資所</p>
+                    <p class="card-text">建構帳號及通訊系統</p>
+                </div>
+            </div>
+        </div>
+        <!-- Member 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'images/staff2.png' %}" class="card-img-top profile-pic" alt="Member 2">
+                <div class="card-body">
+                    <h3 class="card-title">文立</h3>
+                    <p class="card-text">資工所</p>
+                    <p class="card-text">建構發文系統</p>
+                </div>
+            </div>
+        </div>
+        <!-- Member 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'images/staff3.png' %}" class="card-img-top profile-pic" alt="Member 3">
+                <div class="card-body">
+                    <h3 class="card-title">哲賢</h3>
+                    <p class="card-text">資工所</p>
+                    <p class="card-text">建構論壇系統</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-4">Roadmap</h2>
+    <p class="lead">一路的艱辛...</p>
+    <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item">
+            <p>The initial idea and conception of the project:</p>
+            <em>Open source posting forum</em>
+        </li>
+        <li class="list-group-item">
+            <p>Key milestones and features developed along the way.</p>
+            <ul>
+                <li>Account system</li>
+                <li>Post system</li>
+                <li>Comment system</li>
+                <li>Like system</li>
+                <li>Search system</li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <p>Future plans and features you intend to implement:</p>
+            <ul>
+                <li>Notification system</li>
+                <li>Private messaging system</li>
+                <li>Tagging system</li>
+                <li>... and more!</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="company-info mb-5">
+        <h2 class="mb-4">Other Information</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>公司</h3>
+                <p>台灣大學-姜狗幫</p>
+            </div>
+            <div class="col-md-6">
+                <h3>地址</h3>
+                <p>台北市大安區羅斯福路</p>
+            </div>
+            <div class="col-md-6">
+                <h3>聯絡方式</h3>
+                <p>Email: willydjango0146@gmail.com</p>
+                <p>Phone: +886-2-1234-5678</p>
+            </div>
+            <div class="col-md-6">
+                <h3>職業</h3>
+                <p>自由業</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

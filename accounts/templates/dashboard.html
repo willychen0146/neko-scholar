@@ -1,0 +1,68 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+{%  include 'status.html' %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>ACCOUNTS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'register' %}">Create Account</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Account</th>
+					<th>Phone</th>
+				</tr>
+
+				{% for account in accounts %}
+					<tr>
+						<td><a class="btn btn-sm btn-info" href="{% url 'guest' account.id %}">View</a></td>
+						<td>{{account.name}}</td>
+						<td>{{account.phone}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 POST</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Post</th>
+					<th>Upload by</th>
+					<th>Date Comment</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for post in posts %}
+					<tr>
+						<td>{{post.title}}</td>
+						<td>{{post.account}}</td>
+						<td>{{post.date_created}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_post' post.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_post' post.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
