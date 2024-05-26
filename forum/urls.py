@@ -12,5 +12,5 @@ urlpatterns = [
     path('upload_image/', views.upload_image, name='upload_image'),
     path('like-comment/<int:comment_id>/', views.like_comment, name='like_comment'),
     path('toggle-follow/<int:post_id>/', views.toggle_follow, name='toggle_follow'),
-    path('<str:category>', views.forum, name='to_forum'),
+    path('<str:category>/', views.forum, name='to_forum'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

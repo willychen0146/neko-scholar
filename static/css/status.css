@@ -53,3 +53,8 @@ body{
 #total-seniors:hover {
     cursor: pointer;
 }
+
+.no-link-style {
+    color: inherit; /* Remove link color */
+    text-decoration: none; /* Remove underline */
+}

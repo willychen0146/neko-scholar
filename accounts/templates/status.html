@@ -4,14 +4,14 @@
 	<div class="col">
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="total-elementarys">
-				
+				<a href="{% url 'to_forum' 'Elementary' %}" class="no-link-style">
 					<div class="card-header">
 						<h5 class="card-title">Elementarys</h5>
 					</div>
 					<div class="card-body">
 						<h3 class="card-title">{{elementary}}</h3>
 					</div>
-			
+				</a>
 			</div>
 		</div>
 	</div>
@@ -19,14 +19,14 @@
 	<div class="col">
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="total-juniors">
-				
+				<a href="{% url 'to_forum' 'Junior' %}" class="no-link-style">
 					<div class="card-header">
 						<h5 class="card-title">Juniors</h5>
 					</div>
 					<div class="card-body">
 						<h3 class="card-title">{{junior}}</h3>
 					</div>
-				
+				</a>
 			</div>
 		</div>
 	</div>
@@ -34,14 +34,14 @@
 	<div class="col">
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="total-seniors">
-				
+				<a href="{% url 'to_forum' 'Senior' %}" class="no-link-style">
 					<div class="card-header">
 						<h5 class="card-title">Seniors</h5>
 					</div>
 					<div class="card-body">
 						<h3 class="card-title">{{senior}}</h3>
 					</div>
-				
+				</a>
 			</div>
 		</div>
 	</div>

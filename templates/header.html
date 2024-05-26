@@ -53,10 +53,12 @@
           <div class="menu-close-btn">&times;</div>
           <ul>
               <li style="color:black;font-size: 40px; font-weight: bold">Menu</li>
-              <li><a href="{% url 'create_post' %}">Post</a></li>
-              <li><a href="{% url 'send_message' %}">Send Messages</a></li>
-              <li><a href="{% url 'inbox' %}">Messages Box</a></li>
-              <li><a href="{% url 'send_email' %}">Send Email</a></li>
+              {% if request.user.is_staff %}
+                <li><a href="{% url 'create_post' %}">Post</a></li>
+                <li><a href="{% url 'send_message' %}">Send Messages</a></li>
+                <li><a href="{% url 'inbox' %}">Messages Box</a></li>
+                <li><a href="{% url 'send_email' %}">Send Email</a></li>
+              {% endif %}
               <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
