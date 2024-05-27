@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card" id="profile-overview">
-                <img class="card-img-top rounded-circle mx-auto d-block mt-3" style="width: 60%;" src="{{request.user.account.profile_pic.url}}" alt="Profile Picture">
+                <img class="card-img-top rounded-circle mx-auto d-block mt-3" style="width: 60%;" src="{{profile_user.account.profile_pic.url}}" alt="Profile Picture">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ profile_user.account.name }}</h5>
                     <p class="card-text">Email: {{ profile_user.account.email }}</p>
