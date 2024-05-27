@@ -94,9 +94,8 @@ def add_comment(request, post_id):
             )
     return redirect('post', post_id=post.id)
 
+@login_required
 def like(request, post_id):
-    if(request.user.is_authenticated == False):
-        return redirect('login')
     if request.method == 'POST':
         post = get_object_or_404(Post, id=post_id)
         user = request.user
@@ -133,7 +132,7 @@ def upload_image(request):
 @require_POST
 def like_comment(request, comment_id):
     if not request.user.is_authenticated:
-        return redirect('login')
+        return JsonResponse({'error': 'Login required'}, status=401)
 
     comment = get_object_or_404(Comment, id=comment_id)
     like_instance, created = Comment_Like.objects.get_or_create(comment=comment, account=request.user.account)
@@ -147,9 +146,8 @@ def like_comment(request, comment_id):
     likes_count = Comment_Like.objects.filter(comment=comment).count()
     return JsonResponse({'liked': is_liked, 'likes_count': likes_count})
 
+@login_required
 def toggle_follow(request, post_id):
-    if(request.user.is_authenticated == False):
-        return redirect('login')
     if request.method == 'POST':
         try:
             post = Post.objects.get(id=post_id)

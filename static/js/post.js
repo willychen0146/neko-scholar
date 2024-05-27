@@ -19,7 +19,7 @@ $(document).ready(function(){
                 }
             },
             error: function() {
-                alert("Action failed.");
+                alert("Login required.");
             }
         });
     });
@@ -45,7 +45,7 @@ $('.like-comment-btn').click(function(e) {
             }
         },
         error: function() {
-            alert("Action failed.");
+            alert("Login required.");
         }
     });
 });
@@ -67,7 +67,7 @@ $('.follow-button').click(function() {
             }
         },
         error: function(xhr, errmsg, err) {
-            alert('操作失败: ' + errmsg);
+            alert("Login required.");
         }
     });
 });
