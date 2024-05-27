@@ -40,10 +40,10 @@
                 <ul>
                     {% for follow in followed_posts %}
                         <li>
-                            <a href="{% url 'post' follow.post.id %}">
-                                {{ follow.post.title }}
+                            <a href="{% url 'post' follow.following.id %}">
+                                {{ follow.following.title }}
                             </a>
-                            by {{ follow.post.account.name }}
+                            by {{ follow.following.account.name }}
                         </li>
                     {% endfor %}
                 </ul>
