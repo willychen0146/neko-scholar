@@ -19,7 +19,9 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ profile_user.account.name }}</h5>
                     <p class="card-text">Email: {{ profile_user.account.email }}</p>
-                    <a href="{% url 'send_email' %}" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Email</a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url 'send_email' %}" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Email</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

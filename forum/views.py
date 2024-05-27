@@ -29,6 +29,7 @@ def post_view(request, post_id):
     comments = post.comment_set.all()
     post.content = markdown2.markdown(post.content)
     user_has_liked = False
+    user_has_followed = False
     if request.user.is_authenticated:
         user_has_liked = Like.objects.filter(post=post, account=request.user.account).exists()
         user_has_followed = Follow.objects.filter(following=post, follower=request.user.account).exists()
