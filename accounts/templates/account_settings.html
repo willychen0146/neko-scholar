@@ -33,9 +33,26 @@
 			<input class="btn btn-primary" type="submit" name="Update Information">
 			</form>
 		</div>
-	</div>
+        <div class="card card-body" id="followed-posts" style="margin-top: 20px;">
+            <h3>Followed Posts</h3>
+            <hr>
+            {% if followed_posts %}
+                <ul>
+                    {% for follow in followed_posts %}
+                        <li>
+                            <a href="{% url 'post_detail' follow.post.id %}">
+                                {{ follow.post.title }}
+                            </a>
+                            by {{ follow.post.author.username }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You are not following any posts.</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
-
 
 
 {% endblock %}

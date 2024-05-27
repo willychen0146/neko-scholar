@@ -105,10 +105,6 @@ def home(request):
 	myFilter = PostFilter(request.GET, queryset=posts)
 	posts = myFilter.qs
 
-    # Convert post content from Markdown to HTML
-	for post in posts:
-		post.content = markdown2.markdown(post.content)
-
 	# Pagination
 	paginator = Paginator(posts, 5) # Show 5 posts per page
 	page_number = request.GET.get('page')
@@ -123,6 +119,7 @@ def home(request):
 @allowed_users(allowed_roles=['guest'])
 def accountSettings(request):
 	account = request.user.account
+	followed_posts = Follow.objects.filter(follower=account)
 	form = AccountForm(instance=account)
 
 	if request.method == 'POST':
@@ -131,7 +128,7 @@ def accountSettings(request):
 			form.save()
 
 
-	context = {'form':form}
+	context = {'form':form, 'followed_posts':followed_posts}
 	return render(request, 'account_settings.html', context)
 
 # posts for admin and user

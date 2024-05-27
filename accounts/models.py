@@ -72,7 +72,7 @@ class Like(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return self.account.username
+        return self.account.name
     
     class Meta:
         unique_together = ('post', 'account')
@@ -87,7 +87,7 @@ class Follow(models.Model):
         unique_together = ('follower', 'following')
 
     def __str__(self):
-        return f"{self.follower.username} followed post {self.following.id}"
+        return f"{self.follower.name} followed post {self.following.id}"
     
 class Setting(models.Model):
     account = models.OneToOneField(Account, null=True, on_delete=models.CASCADE)
@@ -115,7 +115,7 @@ class Comment_Like(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return self.account.username
+        return self.account.name
     
     class Meta:
         unique_together = ('comment', 'account')    

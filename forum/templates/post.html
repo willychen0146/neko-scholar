@@ -56,7 +56,7 @@
                 {% for comment in comments %}
                 <div class="card mb-2">
                     <div class="card-body">
-                        <p class="card-text">{{ comment.note }}</p>
+                        <p class="card-text">{{ comment.note|linebreaks }}</p>
                         <footer class="blockquote-footer">{{ comment.account.name }} at {{ comment.date_created }}
                             <div class="like-section" style="float: right;">
                                 <form method="post" action="{% url 'like_comment' comment.id %}" style="display: inline;">
