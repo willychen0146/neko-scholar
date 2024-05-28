@@ -11,6 +11,7 @@ import uuid
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from accounts.filters import CommentFilter, PostFilter
+from accounts.forms import PostForm
 
 
 def forum(request, category):
@@ -112,21 +113,30 @@ def like(request, post_id):
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
+# @csrf_exempt
+# def upload_image(request):
+#     if request.method == 'POST' and request.FILES.get('file'):
+#         image = request.FILES['file']
+#         ext = image.name.split('.')[-1]
+#         filename = f"{uuid.uuid4()}.{ext}"
+#         filepath = os.path.join(settings.MEDIA_ROOT, filename)
+
+#         with open(filepath, 'wb+') as f:
+#             for chunk in image.chunks():
+#                 f.write(chunk)
+
+#         image_url = f"{settings.MEDIA_URL}{filename}"
+#         return JsonResponse({'success': 1, 'file': {'url': image_url}})
+
+#     return JsonResponse({'success': 0})
+
 @csrf_exempt
 def upload_image(request):
-    if request.method == 'POST' and request.FILES.get('file'):
+    if request.method == 'POST' and request.FILES['file']:
         image = request.FILES['file']
-        ext = image.name.split('.')[-1]
-        filename = f"{uuid.uuid4()}.{ext}"
-        filepath = os.path.join(settings.MEDIA_ROOT, filename)
-
-        with open(filepath, 'wb+') as f:
-            for chunk in image.chunks():
-                f.write(chunk)
-
-        image_url = f"{settings.MEDIA_URL}{filename}"
-        return JsonResponse({'success': 1, 'file': {'url': image_url}})
-
+        post = Post(image=image)
+        post.save()
+        return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
     return JsonResponse({'success': 0})
 
 @require_POST

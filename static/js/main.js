@@ -14,9 +14,4 @@ $(document).ready(function() {
         // Clears the input field when the user cancels the selection
         $(this).val('');
     });
-
-    // redirectToForum function definition
-    function redirectTo(category) {
-        window.location.href = "{% url 'to_forum' '' %}".slice(0, -1) + category;
-    }
 });
