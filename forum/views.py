@@ -146,18 +146,12 @@ def like(request, post_id):
 
 @csrf_exempt
 def upload_image(request):
-    if request.method == 'POST' and request.FILES:
-        form = ImageUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save()  # Save the form to create a new Post instance
-            return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
-        else:
-            # If the form is not valid, return errors
-            return JsonResponse({'success': 0, 'errors': form.errors})
-    else:
-        # If not a POST request or no files uploaded, return failure
-        return JsonResponse({'success': 0, 'errors': 'No files uploaded or invalid request method'})
-
+    if request.method == 'POST' and request.FILES['file']:
+        image = request.FILES['file']
+        post = Post(image=image)
+        post.save()
+        return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
+    return JsonResponse({'success': 0})
 
 @require_POST
 def like_comment(request, comment_id):
