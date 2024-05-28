@@ -46,7 +46,7 @@ html, body {
 }
 
 #post-section .card-img {
-    width: 85%;
+    width: auto !important;
     height: 85%;
 }
 
