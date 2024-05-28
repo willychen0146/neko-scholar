@@ -12,6 +12,8 @@ from django.urls import reverse
 from django.views.decorators.http import require_POST
 from accounts.filters import CommentFilter, PostFilter
 from accounts.forms import PostForm, ImageUploadForm
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 
 def forum(request, category):
@@ -144,13 +146,28 @@ def like(request, post_id):
 #         # If request method is not POST, return error response
 #         return JsonResponse({'success': 0, 'error': 'Invalid request method'})
 
+# @csrf_exempt
+# def upload_image(request):
+#     if request.method == 'POST' and request.FILES['file']:
+#         image = request.FILES['file']
+#         post = Post(image=image)
+#         post.save()
+#         return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
+#     return JsonResponse({'success': 0})
+
 @csrf_exempt
 def upload_image(request):
-    if request.method == 'POST' and request.FILES['file']:
+    if request.method == 'POST' and request.FILES.get('file'):
         image = request.FILES['file']
-        post = Post(image=image)
-        post.save()
-        return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
+        ext = image.name.split('.')[-1]
+        filename = f"{uuid.uuid4()}.{ext}"
+
+        # Save the file to S3
+        file_name_in_storage = default_storage.save(filename, ContentFile(image.read()))
+        image_url = default_storage.url(file_name_in_storage)
+
+        return JsonResponse({'success': 1, 'file': {'url': image_url}})
+
     return JsonResponse({'success': 0})
 
 @require_POST
