@@ -11,7 +11,7 @@ import uuid
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from accounts.filters import CommentFilter, PostFilter
-from accounts.forms import PostForm
+from accounts.forms import PostForm, ImageUploadForm
 
 
 def forum(request, category):
@@ -130,19 +130,33 @@ def like(request, post_id):
 
 #     return JsonResponse({'success': 0})
     
+# @csrf_exempt
+# def upload_image(request):
+#     if request.method == 'POST':
+#         form = PostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             post = form.save()  # Save the form instance to create a new Post object
+#             return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
+#         else:
+#             # Form is invalid, return error response with form errors
+#             return JsonResponse({'success': 0, 'errors': form.errors})
+#     else:
+#         # If request method is not POST, return error response
+#         return JsonResponse({'success': 0, 'error': 'Invalid request method'})
+
 @csrf_exempt
 def upload_image(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
+    if request.method == 'POST' and request.FILES:
+        form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save()  # Save the form instance to create a new Post object
+            post = form.save()  # Save the form to create a new Post instance
             return JsonResponse({'success': 1, 'file': {'url': post.image.url}})
         else:
-            # Form is invalid, return error response with form errors
+            # If the form is not valid, return errors
             return JsonResponse({'success': 0, 'errors': form.errors})
     else:
-        # If request method is not POST, return error response
-        return JsonResponse({'success': 0, 'error': 'Invalid request method'})
+        # If not a POST request or no files uploaded, return failure
+        return JsonResponse({'success': 0, 'errors': 'No files uploaded or invalid request method'})
 
 
 @require_POST
