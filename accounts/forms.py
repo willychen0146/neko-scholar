@@ -16,9 +16,7 @@ class PostForm(ModelForm):
 		model = Post
 		fields = '__all__'
 
-class ImageUploadForm(ModelForm):
-    image = FileField(label='Upload Image', help_text='Only image files are allowed.', widget=forms.FileInput(attrs={'accept': 'image/*'}))
-
+class ImageUploadForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['image']

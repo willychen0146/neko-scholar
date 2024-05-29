@@ -1,24 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.forms import inlineformset_factory
-from django.contrib.auth.forms import UserCreationForm
 from django.core.paginator import Paginator
 
 from django.contrib.auth import authenticate, login, logout
-
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
 from django.core.mail import send_mail
 
 import json
-import markdown2
 
 # Create your views here.
 from .models import *
 from .forms import PostForm, CreateUserForm, AccountForm, EmailForm, MessageForm
-from .filters import CommentFilter, PostFilter
+from .filters import PostFilter
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from datetime import datetime
 from .serializers import UserSerailizer

@@ -14,16 +14,34 @@ from accounts.filters import CommentFilter, PostFilter
 from accounts.forms import PostForm, ImageUploadForm
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
+from datetime import datetime
+from django.core.paginator import Paginator
 
 
 def forum(request, category):
-    posts = Post.objects.filter(category=category)
-    print(posts)
+    posts = Post.objects.filter(category=category).order_by('-date_created')
+
+	# Parse date range from request 
+    date_range = request.GET.get('date_range', '') 
+    if date_range: 
+        dates = date_range.split(' to ') 
+        if len(dates) == 2: 
+            start_date, end_date = dates 
+            posts = posts.filter(date_created__date__gte=datetime.strptime(start_date, '%Y-%m-%d'), date_created__date__lte=datetime.strptime(end_date, '%Y-%m-%d'))
+
     myFilter = PostFilter(request.GET, queryset=posts)
+    posts = myFilter.qs
+
+	# Pagination
+    paginator = Paginator(posts, 5) # Show 5 posts per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context= {
         'posts': posts,
         'myFilter': myFilter,
-        'category': category
+        'category': category,
+        'page_obj':page_obj,
     }
     return render(request, 'forum.html', context)
 
