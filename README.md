@@ -2,6 +2,10 @@
 
 <div align="center">
 
+<p align="center">
+  ![neko-scholar](https://github.com/user-attachments/assets/cc73292f-b2b8-49ae-8d41-05b3edd90fa2)
+</p>
+
 [![en](https://img.shields.io/badge/lang-en-red)](https://github.com/willychen0146/neko-scholar/blob/main/README.md)
 [![中文](https://img.shields.io/badge/lang-中文-green.svg)](https://github.com/willychen0146/neko-scholar/blob/main/README.zh-TW.md)
 
