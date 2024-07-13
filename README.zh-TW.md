@@ -27,7 +27,7 @@ Neko Scholar is a web forum designed to be a user-friendly academic discussion p
 - **User Management**: Admin dashboard for user account management and permissions.
 
 ### Additional Features
-- **Light/Dark Mode**: Enhance readability with a light/dark theme option.
+- **Dark Mode**: Enhance readability with a dark theme option.
 - **Tagging**: Categorize posts with tags for efficient organization and search.
 - **Search Functionality**: Powerful search capabilities by tags, titles, and date ranges.
 
@@ -85,7 +85,7 @@ AWS_STORAGE_BUCKET_NAME= your/aws/config
 5. Start the development server using `python manage.py runserver`.
 
 ### Docker
-You can also using Docker to launch the server directly, first download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) and then build it.
+Using Docker to launch the server, you first need to download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) and then build it.
 
 ```sh
 # Load the Docker image file
