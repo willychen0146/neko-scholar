@@ -7,7 +7,7 @@
 [![en](https://img.shields.io/badge/lang-en-red)](https://github.com/willychen0146/neko-scholar/blob/main/README.md)
 [![中文](https://img.shields.io/badge/lang-中文-green.svg)](https://github.com/willychen0146/neko-scholar/blob/main/README.zh-TW.md)
 
-Neko Scholar 是一個專為高中和大專學生設計的學術討論平台。
+Neko Scholar 是一個專門為國高中生設計的學術討論平台。
 
 </div>
 
