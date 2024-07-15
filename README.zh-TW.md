@@ -7,10 +7,6 @@
 [![en](https://img.shields.io/badge/lang-en-red)](https://github.com/willychen0146/neko-scholar/blob/main/README.md)
 [![中文](https://img.shields.io/badge/lang-中文-green.svg)](https://github.com/willychen0146/neko-scholar/blob/main/README.zh-TW.md)
 
-Neko Scholar is a web forum designed to be a user-friendly academic discussion platform for high school and junior college students.
-
-</div>
-
 Neko Scholar 是一個專為高中和大專學生設計的學術討論平台。
 
 </div>
