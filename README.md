@@ -52,7 +52,7 @@ Neko Scholar is a web forum designed to be a user-friendly academic discussion p
 - Django 5.0.4
 - PostgreSQL
 
-### Setup
+### Setup and usage
 1. Clone the repository.
 ```sh
 # Clone the repository.
@@ -62,7 +62,7 @@ git clone https://github.com/willychen0146/neko-scholar.git
 2. Run `setup_env.sh` to setup the env.
 
 ```sh
-# This will create a virtual environment and install the required packages
+# This will create a virtual environment and install the required packages.
 sh ./setup_env.sh
 ```
 
@@ -86,7 +86,7 @@ AWS_STORAGE_BUCKET_NAME= your/aws/config
 4. Apply migrations with `python manage.py migrate`.
 5. Start the development server using `python manage.py runserver`.
 
-### Docker Setup
+### Docker setup
 You can also using Docker to launch the server directly, first download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) and then build it.
 
 ```sh
