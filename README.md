@@ -83,8 +83,9 @@ AWS_SECRET_ACCESS_KEY= your/aws/config
 AWS_STORAGE_BUCKET_NAME= your/aws/config
 ```
 
-4. Apply migrations with `python manage.py migrate`.
-5. Start the development server using `python manage.py runserver`.
+4. Make migrations (generate tables) with `python manage.py makemigrations accounts`.
+5. Apply migrations with `python manage.py migrate`.
+6. Start the development server using `python manage.py runserver`.
 
 ### Docker setup
 You can also using Docker to launch the server directly, first download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) and then build it.
