@@ -83,7 +83,7 @@ AWS_SECRET_ACCESS_KEY= your/aws/config
 AWS_STORAGE_BUCKET_NAME= your/aws/config
 ```
 
-4. Make migrations (generate tables) with `python manage.py makemigrations accounts`.
+4. Make migrations (generate tables) with `python manage.py makemigrations`.
 5. Apply migrations with `python manage.py migrate`.
 6. Start the development server using `python manage.py runserver`.
 

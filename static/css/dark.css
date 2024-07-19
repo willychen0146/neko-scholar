@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     background-color: #121212;
     color: #e0e0e0;
+    font-family: 'Roboto', 'Noto Sans TC', '微軟正黑體', sans-serif;
 }
 
 .wrapper {

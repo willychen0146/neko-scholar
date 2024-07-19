@@ -85,8 +85,9 @@ AWS_SECRET_ACCESS_KEY= your/aws/config
 AWS_STORAGE_BUCKET_NAME= your/aws/config
 ```
 
-4. 使用 `python manage.py migrate` 將資料庫遷移。
-5. 使用 `python manage.py runserver` 啟動本地伺服器。
+4. 使用 `python manage.py makemigrations` 建立資料庫遷移。
+5. 使用 `python manage.py migrate` 將資料庫遷移。
+6. 使用 `python manage.py runserver` 啟動本地伺服器。
 
 ### 使用 Docker 來進行建構
 你也可以直接使用 Docker 來啟動服務器，首先需要下載 [Docker 映像檔](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link)，然後構建它。
