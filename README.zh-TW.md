@@ -85,8 +85,8 @@ AWS_SECRET_ACCESS_KEY= your/aws/config
 AWS_STORAGE_BUCKET_NAME= your/aws/config
 ```
 
-4. 使用 `python manage.py makemigrations` 建立資料庫遷移。
-5. 使用 `python manage.py migrate` 將資料庫遷移。
+4. 使用 `python manage.py makemigrations accounts` 來產生出資料庫的 Table。
+5. 使用 `python manage.py migrate` 進行資料庫遷移。
 6. 使用 `python manage.py runserver` 啟動本地伺服器。
 
 ### 使用 Docker 來進行建構
