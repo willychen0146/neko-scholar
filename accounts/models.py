@@ -88,11 +88,12 @@ class Follow(models.Model):
 
     def __str__(self):
         return f"{self.follower.name} followed post {self.following.id}"
-    
+
+# For light/dark theme settings    
 class Setting(models.Model):
     account = models.OneToOneField(Account, null=True, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, null=True)
-    value = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True) # theme
+    value = models.CharField(max_length=200, null=True) # light/dark
 
     def __str__(self):
         return self.name

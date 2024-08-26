@@ -66,24 +66,57 @@ git clone https://github.com/willychen0146/neko-scholar.git
 sh ./setup_env.sh
 ```
 
-3. Create a file name `.env` under `./neko-scholar/blog`, then configure Django settings for Django secret key, database, aws bucket, email integration (You can also use other database like SQLite which is default setting of Django, or static files save location like saving locally, but you need to adjust the setting inside the `./neko-scholar/blog/settings.py` file to achieve this).
-```
-# Example of ".env" file
-SECRET_KEY= your/Django/secret/key
-DEBUG=True
-DATABASE_URL= your/database/config
-DATABASE_USER= your/database/config
-DATABASE_PASS= your/database/config
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_HOST_USER= your/email/host/config
-EMAIL_HOST_PASSWORD= your/email/host/config
-AWS_ACCESS_KEY_ID= your/aws/config
-AWS_SECRET_ACCESS_KEY= your/aws/config
-AWS_STORAGE_BUCKET_NAME= your/aws/config
-```
+3. **(Optional)** Create a file name `.env` under `./neko-scholar/blog`, then configure Django settings for Django secret key, database, aws bucket, email integration (You can also use other database like SQLite which is the default setting of Django, or static files save location like saving locally which is also the default setting of Django, you can adjust the setting inside the `./neko-scholar/blog/settings.py` file to achieve this).
 
-4. Make migrations (generate tables) with `python manage.py makemigrations`.
+    - `.env` file configuration
+        ```
+        # Example of ".env" file
+        SECRET_KEY= your/Django/secret/key
+        DEBUG=True
+        DATABASE_URL= your/database/config
+        DATABASE_USER= your/database/config
+        DATABASE_PASS= your/database/config
+        EMAIL_HOST=smtp.gmail.com
+        EMAIL_PORT=587
+        EMAIL_HOST_USER= your/email/host/config
+        EMAIL_HOST_PASSWORD= your/email/host/config
+        AWS_ACCESS_KEY_ID= your/aws/config
+        AWS_SECRET_ACCESS_KEY= your/aws/config
+        AWS_STORAGE_BUCKET_NAME= your/aws/config
+        ```
+    - `settings.py` configuration
+        ```python
+        # You can adjust the setting inside the './neko-scholar/blog/settings.py'
+
+        # Database setting
+        DATABASES = {
+            # Default using the sqlite3 as database locally.
+            "default": {
+                "ENGINE": "django.db.backends.sqlite3",
+                "NAME": BASE_DIR / "db.sqlite3",
+            }
+            # "default": dj_database_url.config(default=env('DATABASE_URL')) # Use this line instead to use Postgres or other database for production.
+        }
+
+        # SMTP Configuration (This is for the email backend settings, you can use your own email configuration)
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        # EMAIL_HOST = env('EMAIL_HOST')
+        # EMAIL_PORT = env('EMAIL_PORT')
+        # EMAIL_USE_TLS = True
+        # EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+        # EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+        # AWS S3 Bucket Configuration (This is for the S3 bucket settings, you can use your own static files save location configuration)
+        # AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+        # AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+        # AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+        # AWS_S3_FILE_OVERWRITE = False
+        # AWS_DEFAULT_ACL = None
+        # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' # Uncomment this line to use S3 bucket for media files storage
+        ```
+
+4. Make migrations (generate tables) with `python manage.py makemigrations accounts`.
 5. Apply migrations with `python manage.py migrate`.
 6. Start the development server using `python manage.py runserver`.
 
