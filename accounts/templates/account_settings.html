@@ -2,19 +2,10 @@
 {% load static %}
 {% block content %}
 
-<style>
-	.profile-pic{
-		max-width: 200px;
-		max-height:200px;
-		margin: 0 auto;
-		border-radius: 50%;
-	}
-</style>
-
 <br>
-<div class="row">
+<div class="row" id="account-setting">
 	<div class="col-md-3">
-		<div class="card card-body" id="account-setting">
+		<div class="card card-body">
 			<a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to Profile</a>
 			<hr>
 			<h3 style="text-align: center">Account Settings</h3>
@@ -33,7 +24,7 @@
 			<input class="btn btn-primary" type="submit" name="Update Information">
 			</form>
 		</div>
-        <div class="card card-body" id="followed-posts" style="margin-top: 20px;">
+        <div class="card card-body followed-posts" style="margin-top: 20px;">
             <h3>Followed Posts</h3>
             <hr>
             {% if followed_posts %}

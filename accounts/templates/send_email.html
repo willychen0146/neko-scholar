@@ -1,10 +1,11 @@
 {%  extends 'main.html' %}
 {% block content %}
+
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card shadow-sm">
-        <div class="card-body" id="send-email">
+        <div class="card-body send-email-page">
           <h2 class="card-title text-center">Send Email <i class="fas fa-envelope-open-text ml-2"></i></h2>
           <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
@@ -25,4 +26,5 @@
     </div>
   </div>
 </div>
+
 {% endblock content %}

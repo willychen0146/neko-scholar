@@ -1,27 +1,25 @@
 {%  extends 'main.html' %}
 {% block content %}
 
-<div class="container mt-5">
-  <div class="card shadow">
-      <div class="card-body">
-          <h2 class="card-title mb-4">Message Box</h2>
-          <ul class="list-group list-group-flush">
-            {% for message in messages %}
-              <li class="list-group-item">
-                <div class="d-flex w-100 justify-content-between align-items-center">
-                  <h5 class="mb-1">
-                    <i class="fas fa-envelope mr-2"></i>
-                    {{ message.subject }}
-                  </h5>
-                  <small class="text-muted">{{ message.timestamp }}</small>
-                </div>
-                <p class="mb-1"><strong>From:</strong> {{ message.sender.user.username }}</p>
-                <p class="mb-1">{{ message.body }}</p>
-              </li>
-            {% endfor %}
-          </ul>
-      </div>
-  </div>
+<div class="container mt-5 message-box">
+    <div class="card-body">
+        <h2 class="card-title mb-4 text-center">Message Box</h2>
+        <ul class="list-group list-group-flush">
+          {% for message in messages %}
+            <li class="list-group-item">
+              <div class="d-flex w-100 justify-content-between align-items-center">
+                <h5 class="mb-1">
+                  <i class="fas fa-envelope mr-2"></i>
+                  {{ message.subject }}
+                </h5>
+                <small class="text-muted">{{ message.timestamp }}</small>
+              </div>
+              <p class="mb-1"><strong>From:</strong> {{ message.sender.user.username }}</p>
+              <p class="mb-1">{{ message.body }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
 </div>
 
 {% endblock content %}

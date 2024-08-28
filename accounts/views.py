@@ -136,7 +136,8 @@ def posts(request):
 
 # modify posts for admin
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+# @allowed_users(allowed_roles=['admin'])
+@admin_only
 def guest(request, pk_test):
 	account = Account.objects.get(id=pk_test)
 
@@ -152,7 +153,8 @@ def guest(request, pk_test):
 
 # create, update, and delete posts for admin
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+# @allowed_users(allowed_roles=['admin'])
+@admin_only
 def createPost(request, pk):
 	PostFormSet = inlineformset_factory(Account, Post, fields=('content', 'category', 'tags'), extra=10 )
 	account = Account.objects.get(id=pk)
@@ -168,7 +170,8 @@ def createPost(request, pk):
 	return render(request, 'post_form.html', context)
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+# @allowed_users(allowed_roles=['admin'])
+@admin_only
 def updatePost(request, pk):
 	post = Post.objects.get(id=pk)
 	form = PostForm(instance=post)
@@ -184,7 +187,8 @@ def updatePost(request, pk):
 	return render(request, 'post_form.html', context)
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+# @allowed_users(allowed_roles=['admin'])
+@admin_only
 def deletePost(request, pk):
 	post = Post.objects.get(id=pk)
 	if request.method == "POST":

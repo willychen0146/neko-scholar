@@ -2,25 +2,16 @@
 {% load static %}
 {% block content %}
 
-<style>
-    #profile-overview {
-        border-radius: 15px;
-    }
-    #user-details {
-        border-radius: 15px;
-    }
-</style>
-
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-3">
-            <div class="card" id="profile-overview">
+            <div class="card profile-overview">
                 <img class="card-img-top rounded-circle mx-auto d-block mt-3" style="width: 60%;" src="{{profile_user.account.profile_pic.url}}" alt="Profile Picture">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ profile_user.account.name }}</h5>
                     <p class="card-text">Email: {{ profile_user.account.email }}</p>
                     {% if request.user.is_staff %}
-                        <a href="{% url 'send_email' %}" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Email</a>
+                        <a href="{% url 'send_email' %}"><i class="fas fa-envelope"></i> Send Email</a>
                     {% endif %}
                 </div>
             </div>

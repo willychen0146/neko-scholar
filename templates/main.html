@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-theme="light">
 <head>
 
 	<meta charset="utf-8">
@@ -9,6 +9,7 @@
 	<meta name="description" content="Forum">
 	<title>Neko Scholar</title>
 	
+	<!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
 	<!-- jQuery JS-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,13 +27,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<!-- Lazyload -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" async></script>
 	
-	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/status.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
-	{% if not no_light_css %}
-	<link id="mainstylesheet"  rel="stylesheet" type="text/css" href="{% static 'css/light.css' %}">
-	{% endif %}
+	<!-- Main CSS -->
+	<link id="mainstylesheet"  rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 
 	<!-- Custom Web App Icons -->
 	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
@@ -40,74 +39,6 @@
 	<!-- Custom JS -->
 	<script src="{% static 'js/header.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			// Load settings on page load
-			loadSettings();
-
-			// Toggle theme when the theme-switch icon is clicked
-			$('#theme-switch-icon').click(function() {
-				var currentTheme = localStorage.getItem('theme');
-				var newTheme = (currentTheme === 'light.css') ? 'dark.css' : 'light.css';
-				swapStyles(newTheme);
-			});
-
-			function getCookie(name) {
-				var cookieValue = null;
-				if (document.cookie && document.cookie !== '') {
-					var cookies = document.cookie.split(';');
-					for (var i = 0; i < cookies.length; i++) {
-						var cookie = $.trim(cookies[i]);
-						if (cookie.substring(0, name.length + 1) === (name + '=')) {
-							cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-							break;
-						}
-					}
-				}
-				return cookieValue;
-			}
-			var csrftoken = getCookie('csrftoken');
-
-			var cssFile = "{% static 'css' %}";
-
-			function swapStyles(sheet) {
-				$('#mainstylesheet').attr('href', cssFile + '/' + sheet);
-				localStorage.setItem('theme', sheet);
-				updateTheme(sheet);
-			}
-
-			function loadSettings() {
-				var url = "{% url 'user_settings' %}";
-				$.ajax({
-					url: url,
-					method: 'GET',
-					contentType: 'application/json',
-					success: function(data) {
-						console.log('Data:', data);
-						var theme = data.value;
-						if (theme === 'light.css' || theme === null) {
-							swapStyles('light.css');
-						} else if (theme === 'dark.css') {
-							swapStyles('dark.css');
-						}
-					}
-				});
-			}
-
-			function updateTheme(theme) {
-				var url = "{% url 'update_theme' %}";
-				$.ajax({
-					url: url,
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						'X-CSRFToken': csrftoken,
-					},
-					data: JSON.stringify({'theme': theme}),
-				});
-			}
-		});
-	</script>
 </head>
 <body>
     <div class="wrapper">
@@ -119,7 +50,7 @@
 		{% endblock %}
 		</div>
 
-		<hr>
+		<br>
 
 		{%  include 'footer.html' %}
 	</div>

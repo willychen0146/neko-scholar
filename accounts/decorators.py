@@ -29,12 +29,12 @@ def allowed_users(allowed_roles=[]):
 
 def admin_only(view_func):
 	def wrapper_function(request, *args, **kwargs):
+		if request.user.is_superuser:  # Check if the user is a superuser
+			return view_func(request, *args, **kwargs)
+		
 		group = None
 		if request.user.groups.exists():
 			group = request.user.groups.all()[0].name
-
-		# if group == 'guest':
-		# 	return redirect('user-page')
 
 		if group == 'admin':
 			return view_func(request, *args, **kwargs)

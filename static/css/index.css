@@ -1,0 +1,1069 @@
+/* index.css */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+/* @import "https://unpkg.com/open-props"; */
+/* @import "https://unpkg.com/open-props/normalize.min.css"; */
+
+/* the following switch imports have selectors that enable the override of the system setting */
+/* @import "https://unpkg.com/open-props/theme.light.switch.min.css"; */
+/* @import "https://unpkg.com/open-props/theme.dark.switch.min.css"; */
+
+/* 
+ * parcel need 'npm:' prefix to import css from node_modules. but vite don't.
+ * so we use cdn for now.
+ */
+@import "https://unpkg.com/open-props@beta.5/index.css";
+@import "https://unpkg.com/open-props@beta.5/palette.css";
+@import "https://unpkg.com/open-props@beta.5/normalize.css";
+@import "https://unpkg.com/open-props@beta.5/buttons.css";
+@import "https://unpkg.com/open-props@beta.5/forms.css";
+@import "https://unpkg.com/open-props@beta.5/animations.css";
+@import "https://unpkg.com/open-props@beta.5/utilities.css";
+
+/* the following switch imports have selectors that enable the override of the system setting */
+/* @import "open-props/theme.light.switch.min.css"; */
+/* @import "open-props/theme.dark.switch.min.css"; */
+
+:root {
+  --font-family: "IBM Plex Sans", "Punctuation SC", "Inter", ui-sans-serif,
+  system-ui, "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Heiti SC",
+  "Microsoft YaHei", "DengXian", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --_content: 90%;
+
+  /* Light search bar */
+  --light-search-bg: #f5f5f5;
+  --light-input-bg: #ffffff;
+  --light-input-border: #e0e0e0;
+  --light-button-bg: rgb(206, 212, 218);
+  --light-button-hover: rgb(177, 182, 185);
+  --light-text-color: #333333;
+  --light-label-color: #666666;
+
+  /* Dark search bar */
+  --dark-search-bg: #2a2a2a;
+  --dark-input-bg: #3a3a3a;
+  --dark-input-border: #4a4a4a;
+  --dark-button-bg: rgb(52, 58, 64);
+  --dark-button-hover: rgb(33, 37, 41);
+  --dark-text-color: #f0f0f0;
+  --dark-label-color: #b0b0b0;
+
+  /* Category */
+  --elementarys-bg: #4cb4c7;
+  --juniors-bg: #7abecc;
+  --seniors-bg: #7CD1C0;
+  --elementarys-hover: #3ca1b0;
+  --juniors-hover: #69a8b2;
+  --seniors-hover: #6bbba5;
+
+  /* Other colors */
+  --hyper-link: #007bff;
+  --hyper-link-hover: #0056b3;
+}
+
+[data-theme="light"],
+.light {
+  --surface-1: rgb(222, 226, 230);
+  --surface-2: var(--color-1);
+  --surface-3: var(--color-3);
+  --surface-document: var(--color-4);
+  --well-1: var(--color-5);
+  --well-2: var(--color-6);
+  --text-1: var(--color-16);
+  --text-2: var(--color-12);
+
+  --search-bg: var(--light-search-bg);
+  --input-bg: var(--light-input-bg);
+  --input-border: var(--light-input-border);
+  --button-bg: var(--light-button-bg);
+  --button-hover: var(--light-button-hover);
+  --text-color: var(--light-text-color);
+  --label-color: var(--light-label-color);
+
+  --selected-bg: var(--color-7);
+
+  --editor-bg: #ffffff;
+  --editor-text: #000000;
+  --editor-border: #ccc;
+
+  button {
+    background-color: var(--surface-2);
+    color: var(--text-1);
+    border: 1px solid var(--surface-3);
+  }
+}
+[data-theme="dark"],
+.dark {
+  --surface-1: var(--color-11);
+  --surface-2: var(--color-12);
+  --surface-3: var(--color-13);
+  --surface-document: var(--color-14);
+  --well-1: var(--color-15);
+  --well-2: var(--color-16);
+  --text-1: var(--color-1);
+  --text-2: var(--color-5);
+
+  --search-bg: var(--dark-search-bg);
+  --input-bg: var(--dark-input-bg);
+  --input-border: var(--dark-input-border);
+  --button-bg: var(--dark-button-bg);
+  --button-hover: var(--dark-button-hover);
+  --text-color: var(--dark-text-color);
+  --label-color: var(--dark-label-color);  
+
+  --selected-bg: var(--color-11);
+
+  --editor-bg: #1e1e1e;
+  --editor-text: #ffffff;
+  --editor-border: #666;  
+
+  button {
+    background-color: var(--surface-2);
+    color: var(--text-1);
+    border: 1px solid var(--surface-3);
+  }
+}
+
+/* Theme variables */
+/* :root {
+    --background-color: var(--surface-1);
+    --text-color: var(--text-1);
+    --card-background: var(--surface-2);
+    --card-hover-background: var(--surface-3);
+    --card-title-color: var(--text-1);
+    --card-shadow: 0 4px 6px var(--shadow-2);
+    --search-bar-background: var(--surface-3);
+    --button-background: var(--indigo-6);
+    --button-hover-background: var(--indigo-7);
+    --pagination-background: var(--surface-2);
+    --pagination-color: var(--text-2);
+    --pagination-active-background: var(--indigo-6);
+    --pagination-active-color: var(--text-1);
+} */
+
+/* General styling */
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  background-color: var(--surface-1);
+  color: var(--text-1);
+}
+  
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+  
+.content {
+  flex: 1;
+  /* fix the open-props and bootstrap conflict */
+  max-inline-size: var(--_content);
+}
+
+/* fix the open-props and bootstrap conflict */
+h1, h2, h3, h4, h5, h6 {
+  max-inline-size: var(--_content);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Post status styles */
+.total-elementarys{
+	background-color: var(--elementarys-bg);
+}
+
+
+.total-juniors{
+	background-color: var(--juniors-bg)
+}
+
+.total-seniors{
+	background-color: var(--seniors-bg)
+}
+
+.total-elementarys:hover {
+  background-color: var(--elementarys-hover)
+}
+
+.total-juniors:hover {
+  background-color: var(--juniors-hover)
+}
+
+.total-seniors:hover {
+  background-color: var(--seniors-hover)
+}
+
+/* Active (click) states */
+.total-elementarys:active {
+  background-color: #328a97;
+}
+
+.total-juniors:active {
+  background-color: #5b9199;
+}
+
+.total-seniors:active {
+  background-color: #5fa38c;
+}
+
+/* Mouse over change to hand */
+.total-elementarys:hover,
+.total-juniors:hover,
+.total-seniors:hover {
+  cursor: pointer;
+}
+
+.no-link-style {
+  color: inherit; /* Remove link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Home page styles */
+#post-list .post-card {
+  margin-bottom: 2rem;
+  border-radius: var(--radius-3);
+}
+
+#post-list .card {
+  border: none;
+  border-radius: var(--radius-3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--surface-2);
+  transition: background-color var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+}
+
+#post-list .card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--surface-3);
+}
+
+#post-list .post-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-1);
+  padding: 1rem;
+}
+
+#post-list .post-image {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--surface-3);
+}
+
+#post-list .profile-pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+#post-list .author-link {
+  margin-top: 1rem;
+  background-color: var(--button-bg);
+  color: var(--text-1);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color var(--transition);
+}
+
+#post-list .author-link:hover {
+  background-color: var(--button-hover);
+}
+
+#post-list .card-body {
+  padding: 1.5rem;
+}
+
+#post-list .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-1);
+}
+
+#post-list .card-text {
+  margin-bottom: 1rem;
+  color: var(--text-2);
+}
+
+#post-list .post-tags {
+  margin-bottom: 1rem;
+}
+
+#post-list .bg-secondary {
+  background-color: var(--well-1);
+  color: var(--text-2);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-3);
+}
+
+#post-list .bg-secondary:hover {
+  background-color: var(--well-2);
+  color: var(--text-1);
+  cursor: pointer;
+}
+
+/* Not used in the current version */
+/* #post-list .tag {
+  display: inline-block;
+  background-color: var(--surface-3);
+  color: var(--text-1);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-3);
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+} */
+
+#post-list .read-more {
+  display: inline-block;
+  color: var(--hyper-link);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+
+#post-list .read-more:hover {
+  text-decoration: underline;
+  color: var(---hyper-link-hover);
+}
+
+#post-list .card-footer {
+  background: none;
+  border-top: 1px solid var(--surface-3);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#post-list .post-date {
+  color: var(--text-2);
+}
+
+#post-list .post-category {
+  background-color: var(--elementarys-bg);
+  color: var(--text-1);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-3);
+  font-size: 0.8rem;
+}
+
+#post-list .post-category:hover {
+  background-color: var(--elementarys-hover);
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  #post-list .post-image-container {
+      padding: 1rem 1rem 0;
+  }
+
+  #post-list .post-image {
+      padding-bottom: 60%; /* Adjust aspect ratio for mobile */
+  }
+
+  #post-list .author-link {
+      margin-bottom: 1rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Search bar styles */
+.search-bar-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--search-bg);
+  border-radius: var(--radius-4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-input {
+  display: flex;
+}
+
+.search-input input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-4);
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.search-button {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0 0 1rem;
+  background-color: var(--button-bg);
+  color: var(--text-1);
+  border: none;
+  border-radius: var(--radius-6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: var(--button-hover);
+}
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  margin-bottom: 0.5rem;
+  color: var(--label-color);
+  font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-4);
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.daterangepicker button {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0 0 1rem;
+  background-color: var(--button-bg);
+  color: var(--text-1);
+  border: none;
+  border-radius: var(--radius-6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .search-filters {
+      flex-direction: column;
+  }
+  
+  .filter-group {
+      width: 100%;
+  }
+}
+
+/* Filters styles */
+/* #filter-name{
+    margin-bottom: 5px;
+    color: white;
+    text-emphasis: bold;
+} */
+
+/* -------------------------------------------------------------------------- */
+
+/* About page styles */
+#about .card {
+  border: none;
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-2);
+  background-color: var(--surface-2);
+}
+  
+#about .profile-pic {
+  border-radius: 50%;
+  border: 2px solid var(--surface-3);
+  padding: var(--size-2);
+  max-width: 100%;
+  height: auto;
+  box-shadow: var(--shadow-1);
+  transition: transform var(--animation-speed-fast) ease;
+}
+  
+#about .profile-pic:hover {
+  transform: scale(1.05);
+}
+
+#about .card-title {
+  color: var(--accent-1);
+  margin-bottom: var(--size-3);
+}
+
+#about .card-text {
+  font-size: var(--font-size-2);
+  color: var(--text-1);
+}
+
+#about .list-group {
+  border: none;
+  background-color: var(--surface-2);
+  font-size: var(--font-size-2);
+  color: var(--text-1);
+  max-width: 100%;
+}
+
+#about .list-group-item {
+  border: none;
+  background-color: var(--surface-2);
+  color: var(--text-1);
+}
+
+#about .list-group-item:not(:last-child) {
+  border-bottom: 1px solid var(--surface-3);
+}  
+
+/* -------------------------------------------------------------------------- */
+
+/* Pagination styles */
+[data-pagination],
+[data-pagination] *,
+[data-pagination] *:before,
+[data-pagination] *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+[data-pagination] {
+  font-size: 8pt;
+  line-height: 1;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Source Sans Pro', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  margin: 1em auto;
+  text-align: center;
+  transition: font-size .2s ease-in-out;
+}
+[data-pagination] ul {
+  list-style-type: none;
+  display: inline;
+  font-size: 100%;
+  margin: 0;
+  padding: .5em;
+}
+[data-pagination] ul li {
+  display: inline-block;
+  font-size: 100%;
+  width: auto;
+  border-radius: 3px;
+  /* fix confict with the open-props */
+  padding-inline-start: 0;
+}
+[data-pagination] > a {
+  font-size: 140%;
+}
+[data-pagination] a {
+  color: #777;
+  font-size: 100%;
+  padding: .5em;
+}
+[data-pagination] a:focus,
+[data-pagination] a:hover {
+  color: #f60;
+}
+[data-pagination] li.current {
+  background: rgba(0,0,0,.1)
+}
+/* Disabled & Hidden Styles */
+[data-pagination] .disabled,
+[data-pagination] [hidden],
+[data-pagination] [disabled] {
+  opacity: .5;
+  pointer-events: none;
+}
+@media (min-width: 350px) {
+  [data-pagination] {
+    font-size: 10pt;
+  }
+}
+@media (min-width: 500px) {
+  [data-pagination] {
+    font-size: 12pt;
+  }
+}
+@media (min-width: 700px) {
+  [data-pagination] {
+    font-size: 14pt;
+  }
+}
+@media (min-width: 900px) {
+  [data-pagination] {
+    font-size: 16pt;
+  }
+}
+
+/* Profile and Account Settings styles */
+.send-email-page,
+#account-setting .card,
+.profile-overview,
+#user-details,
+.message-box {
+  background-color: var(--surface-2);
+  border-radius: var(--radius-3);
+}
+
+.message-box li {
+  max-inline-size: var(--_content);
+  color: var(--text-1);
+  background-color: var(--surface-2);
+}
+
+.send-message-page .card {
+  border-radius: var(--radius-3);
+  background-color: transparent;
+}
+
+.send-message-page .card-body{
+  background-color: var(--surface-2);
+  color: var(--text-1);
+  border-bottom-left-radius: var(--radius-3);
+  border-bottom-right-radius: var(--radius-3);
+}
+
+.send-message-page .card-header{
+  border-top-left-radius: var(--radius-3);
+  border-top-right-radius: var(--radius-3);
+}
+
+#account-setting .profile-pic{
+  max-width: 200px;
+  max-height:200px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+#user-details .card-body,
+#user-details .card-body .list-group-item {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+}
+
+#user-details .card-body {
+  border-radius: var(--radius-3)
+}
+
+@media (max-width: 768px) {
+  .search-bar-container .form-inline {
+    max-width: 90%;
+  }
+
+  .search-bar-container .form-group.filters {
+    flex-direction: column;
+  }
+
+  .search-bar-container .form-group.filters > * {
+    flex: 0 0 100%;
+    margin-right: 0;
+    margin-bottom: var(--size-2);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Theme switch styles */
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--surface-3);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: var(--animation-speed-fast);
+}
+
+.slider:before {
+  background-color: var(--surface-1);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: var(--animation-speed-fast);
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-1);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* header styles */
+.show-menu {
+  display: flex;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+/* menu button */
+#menuButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#menuButton img {
+  display: block;
+}
+
+/* Fullscreen menu styles */
+#menuList {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Ensure it's above other content */
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slideDown {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-100%);
+  }
+}
+
+/* Close button styles */
+.menu-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 100px;
+  cursor: pointer;
+}
+
+/* Menu list styles */
+#menuList ul {
+  list-style: none;
+  text-align: center;
+}
+
+#menuList ul li {
+  margin: 20px 0;
+}
+
+#menuList ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  transition: color 0.3s ease;
+}
+
+#menuList ul li a:hover {
+  color: #ccc;
+}
+
+.navbar-delimiter {
+  padding: 0 10px;
+  color: white;
+}
+
+#theme-switch-icon:hover {
+  cursor: pointer;
+}
+
+/* TODO header nav bar confict in mobile plateform */
+
+/* @media (max-width: 991.98px) {
+  .navbar-collapse {
+      display: none !important;
+  }
+} */
+
+/* -------------------------------------------------------------------------- */
+
+/* Viewing post styles */
+.post-info-page .card-body img {
+  max-width: 100%;
+  height: auto;
+}
+.post-info-page .post-tags span.badge {
+  margin-right: 5px;
+  color: white;
+  border-radius: var(--radius-3);
+  padding: 5px 10px;
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.post-info-page .post-tags span.badge i {
+  margin-right: 5px; /* the space between the icon and text */
+}
+
+.post-info-page .card {
+  background-color: var(--surface-2);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-3);
+}
+
+.post-info-page .card-body {
+  background-color: var(--surface-3);
+  color: var(--text-1);
+}
+
+.post-info-page .card-title {
+  color: var(--text-1);
+}
+
+.post-info-page .text-muted {
+  color: var(--text-2);
+}
+
+.post-info-page .badge {
+  background-color: var(--well-1);
+  color: var(--text-2);
+}
+
+.post-info-page button.like-button, button.follow-button {
+  background-color: var(--button-bg);
+  color: var(--text-1);
+  border-radius: var(--radius-4);
+}
+
+.post-info-page button.like-button:hover, button.follow-button:hover {
+  background-color: var(--button-hover);
+}
+
+.post-info-page textarea.form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+}
+
+/* .post-info-page .btn-primary {
+  background-color: var(--button-bg);
+  border-color: var(--button-bg);
+}
+
+.post-info-page .btn-primary:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
+} */
+
+.post-info-page .card-footer {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+}
+
+.post-info-page .like-section span {
+  color: var(--text-2);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Creating post page styles */
+.create-post-page .card {
+  background-color: var(--surface-2);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-3);
+}
+
+.create-post-page .form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+/* Input focus states */
+.create-post-page .form-control:focus {
+  border-color: var(--button-bg);
+  box-shadow: 0 0 5px var(--button-hover);
+}
+
+/* Form labels */
+.create-post-page label {
+  color: var(--label-color);
+  font-family: var(--font-family);
+}
+
+/* Checkbox labels */
+.create-post-page .checkbox label {
+  color: var(--label-color);
+}
+
+/* Buttons */
+.create-post-page .btn-primary {
+  background-color: var(--button-bg);
+  /* border-color: var(--button-bg); */
+}
+
+.create-post-page .btn-primary:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
+}
+
+.create-post-page .btn-secondary {
+  background-color: var(--well-1);
+  border-color: var(--well-1);
+}
+
+.create-post-page .btn-secondary:hover {
+  background-color: var(--well-2);
+  border-color: var(--well-2);
+}
+
+/* SimpleMDE overrides */
+.CodeMirror {
+  background-color: var(--editor-bg) !important;
+  color: var(--editor-text) !important;
+  border: 1px solid var(--editor-border);
+}
+
+.CodeMirror-cursor {
+  border-left: 1px solid var(--editor-text);
+}
+
+/* TODO: Fix the toolbar button colors */
+/* Toolbar buttons */
+.editor-toolbar a {
+  color: var(--editor-text) !important;
+}
+
+.editor-toolbar a:hover {
+  background-color: var(--editor-border);
+}
+
+/* -------------------------------------------------------------------------- */
+
+.daterangepicker {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+}
+
+/* Additional styling */
+.daterangepicker .calendar {
+  color: var(--text-color);
+}
+
+.daterangepicker .calendar-table td.active,
+.daterangepicker .calendar-table td.selected {
+  background-color: var(--selected-bg);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Admin page styles */
+.admin-dashboard .card {
+  background-color: transparent;
+  border: none;
+}
+
+.admin-dashboard .table {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+  border-bottom-left-radius: var(--radius-3);
+  border-bottom-right-radius: var(--radius-3);
+  border-width: var(--border-width);
+}
+
+/* TODO: Fix the table header color in the dark mode */
+.admin-dashboard tr:hover {
+  background-color: var(--selected-bg);
+}
+
+.admin-dashboard td:hover {
+  background-color: var(--selected-bg);
+}
+
+.delete-post-page .card {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-3);
+}
+
+.admin-view-user-page .card {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-3);
+}
+
+.admin-view-user-page table {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+}
+
+.modify-post-page .card {
+  background-color: var(--surface-2);
+  color: var(--text-1);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-3);
+}
+
+.modify-post-page input {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+}
+
+/* -------------------------------------------------------------------------- */

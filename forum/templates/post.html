@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 {% with no_light_css=True %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
-<div class="container mt-4">
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}"> -->
+<div class="container mt-4 post-info-page">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">#{{ post.category }} {{ post.title }}</h5>
@@ -87,10 +87,5 @@
 </script>
 <script src="{% static 'js/post.js' %}"></script>
     
-    
-    
-    
-
-
 {% endwith %}
 {% endblock %}

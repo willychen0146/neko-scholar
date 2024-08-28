@@ -1,5 +1,29 @@
 
+// Theme switch function
+function swapStyles(theme) {
+    console.log('switch triger')
+    document.documentElement.setAttribute('data-theme', theme);
+    console.log('data set to', theme)
+    localStorage.setItem('theme', theme);
+}
+
+// Immediately invoked function to set the theme before the page is fully rendered
+(function() {
+    console.log('initiate loading theme')
+    var savedTheme = localStorage.getItem('theme') || 'light';
+    swapStyles(savedTheme);
+})();
+
 $(document).ready(function() {
+    // Listener for theme bottun switch
+    $('#theme-switch-icon').click(function() {
+        console.log('bottun click')
+        var currentTheme = localStorage.getItem('theme') || 'light';
+        var newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+        swapStyles(newTheme);
+    });
+
+    // Searching functionality: date
     $('input[name="date_range"]').daterangepicker({
         opens: 'left',
         autoUpdateInput: false,
