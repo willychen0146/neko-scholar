@@ -54,17 +54,17 @@ Neko Scholar is a web forum designed to be a user-friendly academic discussion p
 
 ### Setup and usage
 1. Clone the repository.
-```sh
-# Clone the repository.
-git clone https://github.com/willychen0146/neko-scholar.git
-```
+    ```sh
+    # Clone the repository.
+    git clone https://github.com/willychen0146/neko-scholar.git
+    ```
 
 2. Run `setup_env.sh` to setup the env.
 
-```sh
-# This will create a virtual environment and install the required packages.
-sh ./setup_env.sh
-```
+    ```sh
+    # This will create a virtual environment and install the required packages.
+    sh ./setup_env.sh
+    ```
 
 3. **(Optional)** Create a file name `.env` under `./neko-scholar/blog`, then configure Django settings for Django secret key, database, aws bucket, email integration (You can also use other database like SQLite which is the default setting of Django, or static files save location like saving locally which is also the default setting of Django, you can adjust the setting inside the `./neko-scholar/blog/settings.py` file to achieve this).
 
@@ -121,15 +121,41 @@ sh ./setup_env.sh
 6. Start the development server using `python manage.py runserver`.
 
 ### Docker setup
-You can also using Docker to launch the server directly, first download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) and then build it.
+You can also run this project using Docker directly, follow these steps:
 
-```sh
-# Load the Docker image file
-docker load -i neko-scholar.tar
+1. Make sure you have Docker and Docker Compose installed on your system.
 
-# Launch neko-scholar using Docker
-docker run -p 8000:8000 neko-scholar:latest
-```
+2. Build and run the Docker container:
+    ```sh
+    # This command will build the Docker image and start the container.
+    docker-compose up --build
+    ```
+    
+
+3. The application will be available at `http://localhost:8000`.
+
+4. To stop the container, use `Ctrl+C` in the terminal where docker-compose is running.
+
+5. To run the container in detached mode, use:
+    ```sh
+    docker-compose up -d
+    ```
+
+6. And to stop it:
+    ```sh
+    docker-compose down
+    ```
+
+- Note: This setup uses `SQLite` as the database, which is stored in a Docker volume. For production use, consider using a more robust database solution.
+
+- You can also download the [Docker image file](https://drive.google.com/file/d/1Ss0jQvlAzZZhTm0VW7jJZh-On0iVqoYm/view?usp=drive_link) I builded and then load it directly.
+    ```sh
+    # Load the Docker image file
+    docker load -i neko-scholar.tar
+
+    # Launch neko-scholar using Docker
+    docker run -p 8000:8000 neko-scholar:latest
+    ```
 
 ### **Custom Database or Static Files (Optional)**
 If you want to set up an external `database` and `static files` storage location instead of the default SQLite3 and static folder: 
